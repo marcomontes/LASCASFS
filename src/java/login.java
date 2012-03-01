@@ -18,9 +18,9 @@ public class login extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         //API Credentials
-        String client_id="HTX3FYAVTJOV2NR3NOS5RGOMBRNYIVJD55T2BIZ4DDXXXXXX";
-        String client_secret="5W33FKDZ11UY3V23OBAM0AODFXYLVMTUORAAWYCSUHXXXXXX";
-        String redirect_uri="http://localhost:8080/foursquare/auth";
+        String client_id="5IRI1GZD25A051NKM4M5PLI4XCHQRP3Q3JTWO2R4XJ3ZWYTD";
+        String client_secret="QFIFMHRWSEANVMASMEABO3WHZS4S5MQUSVMOGNEZDKJZ2DJA";
+        String redirect_uri="http://localhost:8080/LASCASFS/auth";
         
         //Set Session Variables
         HttpSession session = request.getSession(true);

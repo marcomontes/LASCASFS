@@ -39,7 +39,8 @@ public class getvenues extends HttpServlet {
             ll=URLEncoder.encode(ll, "UTF-8");
         }else{
             //use default value
-            ll=URLEncoder.encode("32.7410551586783,-117.07813382148743", "UTF-8");
+            ll=URLEncoder.encode("5.056153,-75.48564", "UTF-8");
+            //ll=URLEncoder.encode("32.7410551586783,-117.07813382148743", "UTF-8");
         }
 
         try{
