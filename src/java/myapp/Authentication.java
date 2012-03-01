@@ -2,36 +2,27 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
+package myapp;
 
+import fi.foyt.foursquare.api.FoursquareApi;
+import fi.foyt.foursquare.api.FoursquareApiException;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.OAuth;
 
 /**
  *
- * @author formacion1
+ * @author javo
  */
-@WebServlet(name = "Main", urlPatterns = {"/Main"})
-public class Main extends HttpServlet {
-    String quecosa;
-    String morsepalabra;
-    String morseletra;
-    Integer x;
-    Integer y;
-    String mimorse;
-    String mimorseeditado;
-    Integer tamañomimorseeditado;
-    Integer ubicacionseparador;
-    Integer ubicacionespacio;
-    Integer tamanomorsepalabra;
+@WebServlet(name = "Authentication", urlPatterns = {"/Authentication"})
+public class Authentication extends HttpServlet {
+    String ClientID = "5IRI1GZD25A051NKM4M5PLI4XCHQRP3Q3JTWO2R4XJ3ZWYTD";
+    String ClientSecret = "QFIFMHRWSEANVMASMEABO3WHZS4S5MQUSVMOGNEZDKJZ2DJA";
+    String CallbackURL = "https://github.com/javotrujillo";
     
     /** 
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code> methods.
@@ -41,18 +32,32 @@ public class Main extends HttpServlet {
      * @throws IOException if an I/O error occurs
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException, Exception {
+            throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         try {
-            OAuth oauth = new OAuth();
+            FoursquareApi foursquareApi = new FoursquareApi("5IRI1GZD25A051NKM4M5PLI4XCHQRP3Q3JTWO2R4XJ3ZWYTD", "QFIFMHRWSEANVMASMEABO3WHZS4S5MQUSVMOGNEZDKJZ2DJA", "https://github.com/javotrujillo");
+                try {
+                    // First we need to redirect our user to authentication page. 
+                    response.sendRedirect(foursquareApi.getAuthenticationUrl());
+                } catch (IOException e) {
+                    // TODO: Error handling
+                }
+            String code = request.getParameter("code");
+                try {
+                  // finally we need to authenticate that authorization code 
+                  foursquareApi.authenticateCode(code);
+                  // ... and voilà we have a authenticated Foursquare client
+                } catch (FoursquareApiException e) {
+                 // TODO: Error handling
+                }
             out.println("<html>");
             out.println("<head>");
-            out.println("<title>Servlet Listar</title>");  
+            out.println("<title>Servlet Authentication</title>");  
             out.println("</head>");
             out.println("<body>");
-            out.println("<h1> Su Texto: </h1><br>");
-             out.println("</body>");
+            out.println("<h1>Servlet Authentication at " + request.getContextPath () + "</h1>");
+            out.println("</body>");
             out.println("</html>");
         } finally {            
             out.close();
@@ -70,11 +75,7 @@ public class Main extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /** 
@@ -87,11 +88,7 @@ public class Main extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        try {
-            processRequest(request, response);
-        } catch (Exception ex) {
-            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        processRequest(request, response);
     }
 
     /** 
