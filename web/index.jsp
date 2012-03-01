@@ -12,8 +12,6 @@
         <title>Foursquare API LASCAS</title>
     </head>
     <body>
-        <br>
-        <br>
         <form action="Main" method="POST">
             <h2>Vamos a la Foursquare</h2>
             <p>
