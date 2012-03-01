@@ -1,1 +1,8 @@
-Aplicativo en Java para el consumo de la API de Foursquare, disenado como primera etapa para los proyectos de Publicidad
+Aplicativo en Java para el consumo de la API de Foursquare.
+
+Version 1.0
+Adicion de Nuevas librerias JSON y GSON.
+
+Version 1.5
+El sistema ya se registra correctamente y puede tomar datos a partir de la Longitud y Latitud. El checking Privado
+y publico esta presentando problemas (a pesar de que en las actividades se ve perfecto).
