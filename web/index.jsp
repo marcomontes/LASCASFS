@@ -12,7 +12,7 @@
         <title>Foursquare API LASCAS</title>
     </head>
     <body>
-        <form action="Authentication" method="POST">
+        <form action="login" method="POST">
             <h2>Vamos a la Foursquare</h2>
             <p>
             <input type="submit" value="Autorizar API" />
