@@ -51,7 +51,8 @@ public class checkin extends HttpServlet {
             if (item_obj.get("message")!=null){
                 out.println(item_obj.get("message"));
             }else{
-                out.println("Error: Checkin was not successful");
+                out.print("Checkin was successful");
+                response.sendRedirect(request.getContextPath() + "/getvenues");
             }
             
         }else{

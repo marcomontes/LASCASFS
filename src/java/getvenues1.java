@@ -12,8 +12,8 @@ import org.json.simple.JSONObject;
 import java.net.URLEncoder;
 
 
-@WebServlet(name="getvenues", urlPatterns={"/getvenues"})
-public class getvenues extends HttpServlet {
+@WebServlet(name="getvenues1", urlPatterns={"/getvenues1"})
+public class getvenues1 extends HttpServlet {
    
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
@@ -49,7 +49,7 @@ public class getvenues extends HttpServlet {
             String content=webrs.getContent(url);
             //out.println(content);
 
-            String htmltable="<table width='60%' align='center' border=1><thead><th>Nombre</th><th>Direccion</th><th>Checkin</th></thead><tbody>";
+            String htmltable="<table width='100%' border=1><thead><th>Name</th><th>Address</th><th>State</th><th>Lat</th><th>Lng</th><th>Actions</th></thead><tbody>";
             //JSON Parsing (JSON-Simple)
             Object obj=JSONValue.parse(content);
             JSONObject main_obj=(JSONObject)obj;
@@ -63,14 +63,14 @@ public class getvenues extends HttpServlet {
                         JSONObject item_obj = (JSONObject)items_arr.get(j);
 
                         htmltable+="<tr>";
-                        htmltable+="<td><center>" + item_obj.get("name") + "</center></td>";
+                        htmltable+="<td>" + item_obj.get("name") + "</td>";
                         JSONObject location_obj = (JSONObject)item_obj.get("location");
                         htmltable+="<td>" + location_obj.get("address") + "</td>";
-                        //htmltable+="<td>" + location_obj.get("city") + "</td>";
-                        //htmltable+="<td>" + location_obj.get("lat") + "</td>";
-                        //htmltable+="<td>" + location_obj.get("lng") + "</td>";
-                        htmltable+="<td><center><a href='" +request.getContextPath() + "/checkin?broadcast=public&venueid=" + item_obj.get("id") + "'> <img src='" + request.getContextPath() + "/imagenes/checkinon-blue.png'> </a></center> </td>";
-                        //htmltable+="<a href='" +request.getContextPath() + "/checkin?broadcast=private&venueid=" + item_obj.get("id") + "'>Checkin (Private)</a> </td>";
+                        htmltable+="<td>" + location_obj.get("city") + "</td>";
+                        htmltable+="<td>" + location_obj.get("lat") + "</td>";
+                        htmltable+="<td>" + location_obj.get("lng") + "</td>";
+                        htmltable+="<td><a href='" +request.getContextPath() + "/checkin?broadcast=public&venueid=" + item_obj.get("id") + "'>Checkin (Public)</a> / ";
+                        htmltable+="<a href='" +request.getContextPath() + "/checkin?broadcast=private&venueid=" + item_obj.get("id") + "'>Checkin (Private)</a> </td>";
                         htmltable+="</tr>";
                         //out.println(items_arr.get(0));
                     }

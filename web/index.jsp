@@ -12,11 +12,13 @@
         <title>Foursquare API LASCAS</title>
     </head>
     <body>
+    <center>
         <form action="login" method="POST">
-            <h2>Vamos a la Foursquare</h2>
+            <img border="0" src="<%=request.getContextPath()%>/imagenes/foursquare-logo.png" alt="Foursquare" width="270" height="73" />
             <p>
-            <input type="submit" value="Autorizar API" />
+            <input type="image" src="<%=request.getContextPath()%>/imagenes/connect-blue.png" alt="Adelante !" />
+            <%-- <input type="submit" value="Adelante !" /> --%>
         </form>
-        
+    </center>
     </body>
 </html>

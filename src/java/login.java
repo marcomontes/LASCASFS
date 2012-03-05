@@ -18,8 +18,8 @@ public class login extends HttpServlet {
         PrintWriter out = response.getWriter();
 
         //API Credentials
-        String client_id="5IRI1GZD25A051NKM4M5PLI4XCHQRP3Q3JTWO2R4XJ3ZWYTD";
-        String client_secret="QFIFMHRWSEANVMASMEABO3WHZS4S5MQUSVMOGNEZDKJZ2DJA";
+        String client_id="IJVIUIN2TAHFZOP4QLCNVFA5RWER40FAIPVJQZIOCUVISEIV";
+        String client_secret="VGRRAI1VPIQAIRIOI3NY5FKDPPFWBXYOUHVTJOIXFLHXSVJH";
         String redirect_uri="http://localhost:8080/LASCASFS/auth";
         
         //Set Session Variables

@@ -44,6 +44,8 @@ public class auth extends HttpServlet {
 
             out.println("Authenticated Successfully!");
 
+            //Utilizar posiblemente este codigo en la parte de getvenues, asi utilizamos esta clase Java para hacer todos los checkings.
+            //recordar que el checkin solo se puede realizar utilizando metodos POST, de otra forma devuelve error al realizarlo.
             //Redirect to welcome page
             response.sendRedirect(request.getContextPath() + "/getvenues");
 
