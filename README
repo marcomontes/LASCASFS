@@ -6,3 +6,8 @@ Adicion de Nuevas librerias JSON y GSON.
 Version 1.5
 El sistema ya se registra correctamente y puede tomar datos a partir de la Longitud y Latitud. El checking Privado
 y publico esta presentando problemas (a pesar de que en las actividades se ve perfecto).
+
+Version 1.5.1.
+Se cambia el inicio. Los checkin funcionan actualmente. Se intenta modificar la apariencia de toda la aplicacion.
+Las proximas ediciones se enfocaran en enviar un parametro de busqueda a /getvenues en lugar de la clasica "LL"
+y en seguir sacando servicios de la API.
